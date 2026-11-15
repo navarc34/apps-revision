@@ -1019,7 +1019,7 @@ const DATA = {
       },
       {
         "q": "La chute du roman",
-        "a": "La dernière phrase affirme « avec force et originalité » la supériorité de l'amitié sur le sentiment amoureux. Un excipit qui déçoit ceux qui attendaient le mariage — et qui fait la modernité de l'œuvre.",
+        "a": "La dernière phrase affirme « avec force et originalité » la supériorité de l'amitié sur le sentiment amoureux. Un explicit qui déçoit ceux qui attendaient le mariage — et qui fait la modernité de l'œuvre.",
         "tag": "Analyse",
         "id": "graffigny-3-flash-010",
         "tags": [
@@ -1037,7 +1037,7 @@ const DATA = {
       },
       {
         "q": "Utiliser la vie de l'autrice en dissertation",
-        "a": "Amorce : l'autrice extérieure à la cour, comme Zilia à Paris. Argument : l'indépendance de l'autrice (séparation, écriture professionnelle) éclaire celle de l'héroïne. Ouverture : son influence sur la condition féminine, jusqu'à Olympe de Gouges.",
+        "a": "Amorce : l'autrice étrangère à la cour, comme Zilia à Paris. Argument : l'indépendance de l'autrice (séparation, écriture professionnelle) éclaire celle de l'héroïne. Ouverture : son influence sur la condition féminine, jusqu'à Olympe de Gouges.",
         "tag": "Méthode",
         "id": "graffigny-3-flash-012",
         "tags": [

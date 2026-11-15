@@ -12,11 +12,13 @@
 <div id="fallback" style="font:16px system-ui;margin:60px auto;max-width:550px;padding:20px">Chargement de l'application… Si ce message persiste, vérifie que JavaScript est activé.</div>
 <script>
 /* ============ MESURE D'AUDIENCE (Google Apps Script) ============
-   Remplace la valeur ci-dessous par l'URL de déploiement de ton script.
-   Tant qu'elle n'est pas remplacée, l'app fonctionne, sans mesure. */
+   Les événements (ouverture, module, score) partent vers la feuille
+   de suivi associée à cette app. */
 const TRACK_URL = "https://script.google.com/macros/s/AKfycbyM5Eaz4lLDmbVEWX0GcjTTL1NtMWAm9NEw7c-Ifyg6MsdFco0TQ0Duuehc2-dZNSGErA/exec";
 
-/* Identifiant visiteur anonyme : généré une fois par navigateur, jamais une donnée personnelle. */
+/* Identifiant visiteur pseudonymisé : généré une fois par navigateur.
+   Aucune donnée nominative n'est collectée ; l'identifiant sert uniquement
+   à distinguer les sessions dans la feuille de suivi. */
 function getUid() {
   try {
     let uid = window.localStorage.getItem("graffigny-uid");
@@ -68,7 +70,7 @@ function track(event, module, score) {
 <script src="../../shared/vendor/react.production.min.js"></script>
 <script src="../../shared/vendor/react-dom.production.min.js"></script>
 <script src="../../shared/revision-engine.js"></script>
-<script src="./data.js"></script>
+<script src="./data.js?v=2.0.1"></script>
 <script src="../../shared/ui.js"></script>
-<script src="./app.js"></script>
+<script src="./app.js?v=2.0.1"></script>
 </body></html>
