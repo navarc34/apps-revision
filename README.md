@@ -17,7 +17,7 @@ shared/
   styles.css          # design commun de la V2
 fr/graffigny/
   index.html          # point d'entrée GitHub Pages
-  data.js             # 114 items, IDs et tags
+  data.js             # 118 items, IDs et tags
   app.js              # navigation, révision du jour, thèmes, tableau de bord
 ```
 
@@ -33,11 +33,11 @@ fr/graffigny/
 
 ## Vérifications effectuées
 - Analyse syntaxique JavaScript des six scripts, sans erreur.
-- Contrôle des 114 items et de l'unicité des 114 identifiants.
+- Contrôle des 118 items et de l'unicité des 118 identifiants.
 - Validation structurelle des QCM, vrai/faux et citations.
 - Simulation du suivi par item et de la sélection d'une session de 12 questions.
 
-**À faire avant une fusion dans main** : vérification visuelle dans les navigateurs cibles, test mobile / clavier, amélioration des flashcards trop longues, stabilisation explicite des IDs, suppression de la dépendance Tailwind CDN héritée des écrans V1.
+**À faire avant une fusion dans main** : vérification visuelle dans les navigateurs cibles, test mobile / clavier, amélioration des flashcards trop longues, suppression de la dépendance Tailwind CDN héritée des écrans V1.
 
 ## Publier plus tard
 Une fois la V2 validée, fusionner `dev-chatgpt` dans `main`. Aucun déploiement en production n'est effectué par cette branche.
