@@ -29,6 +29,7 @@ fr/graffigny/
 - Historique et échéances enregistrés **localement** par navigateur (pas de compte ni synchronisation multi-appareils).
 - Maîtrise estimée par item. Les anciens meilleurs scores V1 sont conservés dans `legacyScores` à la première ouverture, mais **ne sont pas transformés artificiellement en résultats par item**.
 - L'identifiant d'un item doit rester stable après publication : ne pas réordonner le tableau de questions existant sans remplacer les IDs générés à partir des positions par des IDs explicites.
+- Styles V2 et utilitaires nécessaires à la V1 regroupés dans `shared/styles.css` ; aucun CDN requis pour le rendu.
 - Analytics V1 conservés sans changement de finalité ; RGPD et stratégie de télémétrie à revoir ultérieurement.
 
 ## Vérifications effectuées
@@ -37,7 +38,7 @@ fr/graffigny/
 - Validation structurelle des QCM, vrai/faux et citations.
 - Simulation du suivi par item et de la sélection d'une session de 12 questions.
 
-**À faire avant une fusion dans main** : vérification visuelle dans les navigateurs cibles, test mobile / clavier, amélioration des flashcards trop longues, suppression de la dépendance Tailwind CDN héritée des écrans V1.
+**À faire avant une fusion dans main** : vérification de non-régression visuelle des quatre exercices après remplacement du CDN par le CSS local, test mobile / clavier, amélioration des flashcards encore trop longues.
 
 ## Publier plus tard
 Une fois la V2 validée, fusionner `dev-chatgpt` dans `main`. Aucun déploiement en production n'est effectué par cette branche.
