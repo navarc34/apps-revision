@@ -375,7 +375,7 @@ const DATA = {
       {
         "s": "Aza reste fidèle à Zilia et la retrouve à la fin.",
         "v": false,
-        "why": "Converti au catholicisme, il épouse une jeune Espagnole — il lui est même impossible d'unir Zilia, sa proche parente.",
+        "why": "Converti au catholicisme, il épouse une jeune Espagnole — il lui est même impossible de s'unir à Zilia, sa proche parente.",
         "id": "graffigny-1-vf-005",
         "tags": [
           "Connaissances"
@@ -447,7 +447,7 @@ const DATA = {
       {
         "source": "Avertissement — l'autrice cite son modèle",
         "texte": "« Comment peut-on être Persan ? » (Montesquieu)",
-        "consigne": "D'où vient cette citation et que fait-elle l'autrice en la plaçant en tête de son roman ?",
+        "consigne": "D'où vient cette citation et que fait l'autrice en la plaçant en tête de son roman ?",
         "reponse": [
           "Elle vient des Lettres persanes (1721) : Montesquieu y fait observer Paris par deux Persans.",
           "En citant Montesquieu dès l'Avertissement, Mme de Graffigny revendique son héritage : le dispositif du regard étranger.",
@@ -579,7 +579,7 @@ const DATA = {
       },
       {
         "q": "La religion dans le roman",
-        "a": "D'abord séduite par le religieux du couvent (lettre XXI : une foi « aussi pures que les nôtres »), Zilia en perçoit les failles et l'hypocrisie à la lettre suivante (les livres réduits à de vils objets commerciaux). Critique nuancée, pas frontale.",
+        "a": "D'abord séduite par le religieux du couvent (lettre XXI : une foi dont les vertus lui paraissent « aussi pures que les nôtres »), Zilia en perçoit les failles et l'hypocrisie à la lettre suivante (les livres réduits à de vils objets commerciaux). Critique nuancée, pas frontale.",
         "tag": "Lumières",
         "id": "graffigny-2-flash-010",
         "tags": [
@@ -992,7 +992,7 @@ const DATA = {
       },
       {
         "q": "La triple marginalité de Zilia",
-        "a": "Femme, étrangère, pauvre et déclassée socialement (« Je n'ai ni or, ni terres, ni adresse »). Ce cumul de handicaps fait du roman un manifeste relisible au prisme des études sur le genre (redécouverte années 1960).",
+        "a": "Femme, étrangère, pauvre et déclassée socialement (« Je n'ai ni or, ni terres, ni adresse »). Ce cumul de handicaps fait du roman un manifeste relisible au prisme des études sur le genre (redécouverte dans les années 1960).",
         "tag": "Analyse",
         "id": "graffigny-3-flash-007",
         "tags": [
@@ -1019,7 +1019,7 @@ const DATA = {
       },
       {
         "q": "La chute du roman",
-        "a": "La dernière phrase affirme « avec force et originalité » la supériorité de l'amitié sur le sentiment amoureux. Un explicit qui déçoit ceux qui attendaient le mariage — et qui fait la modernité de l'œuvre.",
+        "a": "La dernière phrase affirme « avec force et originalité » la supériorité de l'amitié sur le sentiment amoureux. Un excipit qui déçoit ceux qui attendaient le mariage — et qui fait la modernité de l'œuvre.",
         "tag": "Analyse",
         "id": "graffigny-3-flash-010",
         "tags": [
@@ -1037,7 +1037,7 @@ const DATA = {
       },
       {
         "q": "Utiliser la vie de l'autrice en dissertation",
-        "a": "Amorce : l'autrice étrangère à la cour, comme Zilia à Paris. Argument : l'indépendance de l'autrice (séparation, écriture professionnelle) éclaire celle de l'héroïne. Ouverture : son influence sur la condition féminine, jusqu'à Olympe de Gouges.",
+        "a": "Amorce : l'autrice extérieure à la cour, comme Zilia à Paris. Argument : l'indépendance de l'autrice (séparation, écriture professionnelle) éclaire celle de l'héroïne. Ouverture : son influence sur la condition féminine, jusqu'à Olympe de Gouges.",
         "tag": "Méthode",
         "id": "graffigny-3-flash-012",
         "tags": [
@@ -1237,7 +1237,7 @@ const DATA = {
       {
         "s": "Zilia refuse les cadeaux de Céline par orgueil.",
         "v": false,
-        "why": "Elle se dit humiliée des cadeaux que veut lui faire son amie : c'est sa fierté blessée de dépendante, pas de l'orgueil — un nuance de plus qui l'humanise.",
+        "why": "Elle se dit humiliée des cadeaux que veut lui faire son amie : c'est sa fierté blessée de dépendante, pas de l'orgueil — une nuance de plus qui l'humanise.",
         "id": "graffigny-3-vf-005",
         "tags": [
           "Connaissances"
@@ -1328,7 +1328,7 @@ const DATA = {
         "consigne": "Mission : double réflexion. Que dit la phrase ? Et surtout : pourquoi Graffigny la met-elle dans la bouche de Zilia plutôt que d'écrire un traité ?",
         "reponse": [
           "Le contenu : le gouvernement français est défectueux — le réquisitoire du despotisme, un combat des Lumières.",
-          "Le procédé : l'argumentation indirecte par personnage interposé évite la censure qui frapperait un essai direct.",
+          "Le procédé : l'argumentation indirecte par l'intermédiaire d'un personnage évite la censure qui frapperait un essai direct.",
           "La comparaison avec le modèle inca (« celui du tien ») opère le renversement : c'est le régime européen qui est jugé par l'ailleurs.",
           "La naïveté de Zilia déguise la critique en simple étonnement : la stratégie du regard étranger à son sommet."
         ],
@@ -1343,7 +1343,7 @@ const DATA = {
         "texte": "« L'intelligence des langues serait-elle celle de l'âme ? »",
         "consigne": "Mission : pourquoi cette question est-elle la clé de tout le parcours ? Relie-la à la lettre XVIII et au miroir de la lettre X.",
         "reponse": [
-          "Formule une thèse cognitive : pas de pensée libre sans langue — apprendre le français, pour Zilia, c'apprendre à penser autrement.",
+          "Formule une thèse cognitive : pas de pensée libre sans langue — apprendre le français, pour Zilia, c'est apprendre à penser autrement.",
           "Elle prépare « un nouvel univers s'est offert à mes yeux » (lettre XVIII) : la langue donne le monde.",
           "Le miroir de la lettre X donne à la lettre IX sa figure : l'identité se voit et se dit, elle se construit par le langage.",
           "C'est la citation que l'autrice elle-même a rendue célèbre (« une citation célèbre » des fiches) : parfaite pour une amorce d'essai ou d'entretien."
