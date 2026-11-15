@@ -25,7 +25,7 @@ function CurrentExercise({item,onAnswer}){
  if(item.type==="quiz")return h("div",{className:"v2-question"},
    h("div",{className:"v2-question-label"},"QUIZ"),
    h("p",{className:"v2-question-text"},item.q),
-   h("div",{className:"v2-options"},...(item.options||[]).map((o,i)=>h("button",{key:i,disabled:choice!==null,onClick:()=>answer(i===item.correct),className:choice!==null&&i===item.correct?"v2-correct":""},o))),
+   h("div",{className:"v2-options"},...(item.choices||[]).map((o,i)=>h("button",{key:i,disabled:choice!==null,onClick:()=>answer(i===item.correct),className:choice!==null&&i===item.correct?"v2-correct":""},o))),
    choice!==null?h("div",{className:"v2-feedback"},item.why):null
  );
  return h("div",{className:"v2-question"},
