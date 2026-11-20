@@ -1,0 +1,21 @@
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;color:#18181b;background:#fafaf9;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#fafaf9 0,#f4f4f1 100%);min-height:100vh}
+a{color:inherit}.catalog-shell{max-width:920px;margin:auto;padding:56px 22px 72px}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:#0d766f;margin:0 0 12px}
+h1{font-size:clamp(34px,6vw,56px);letter-spacing:-.045em;line-height:1.02;margin:0;max-width:760px}
+.lead{color:#71717a;font-size:16px;line-height:1.7;max-width:680px;margin:18px 0 38px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{display:flex;flex-direction:column;min-height:205px;padding:24px;border:1px solid #e5e5e1;border-radius:22px;background:rgba(255,255,255,.9);text-decoration:none;box-shadow:0 18px 40px -34px #777;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.card:hover{transform:translateY(-2px);border-color:#c8d8d4;box-shadow:0 22px 45px -32px #777}.card:focus-visible{outline:3px solid #0d9488;outline-offset:3px}
+.card .num{font-size:11px;font-weight:800;letter-spacing:.12em;color:#8b8b95;text-transform:uppercase}
+.card h2{font-size:22px;letter-spacing:-.025em;margin:24px 0 8px}.card p{font-size:13px;line-height:1.6;color:#71717a;margin:0 0 24px}
+.card .cta{margin-top:auto;font-size:13px;font-weight:750;color:#0d766f}.muted{background:#f8f8f6}
+.banner{display:flex;align-items:center;gap:10px;border:1px solid #dfe9e6;background:#eef8f5;color:#285c53;border-radius:14px;padding:12px 15px;font-size:13px;margin:0 0 24px}
+.dot{width:8px;height:8px;border-radius:50%;background:#0d9488;flex:0 0 auto}
+.footer{border-top:1px solid #e4e4df;margin-top:42px;padding-top:19px;font-size:11px;color:#8a8a90}
+.soon{display:grid;place-items:center;min-height:100vh;padding:24px}
+.soon-card{width:min(650px,100%);background:#fff;border:1px solid #e5e5e1;border-radius:26px;padding:38px;box-shadow:0 24px 60px -44px #555}
+.soon-card h1{font-size:clamp(31px,7vw,49px)}.soon-card .lead{margin-bottom:28px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#eef8f5;color:#0d766f;font-weight:800;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;border-radius:999px;margin-bottom:22px}
+.back{display:inline-flex;text-decoration:none;font-size:13px;font-weight:750;color:#0d766f;padding:10px 0}
+@media(max-width:680px){.catalog-shell{padding:38px 15px 55px}.grid{grid-template-columns:1fr}.card{min-height:180px}.soon-card{padding:28px 22px}}
