@@ -4,12 +4,14 @@ Les versions sont propres à chaque application. Le numéro affiché dans l’ap
 
 | Application | Entrée | Version |
 |---|---|---|
-| L’Énéide | `latin/eneide/` | 1.2.1 |
+| L’Énéide | `latin/eneide/` | 1.2.2 |
 | Lettres d’une Péruvienne | `fr/lettres-peruvienne/` | 1.0.0 |
 | Ourika | `fr/ourika/` | 1.0.0 |
 | Americanah | `fr/americanah/` | 1.3.0 |
 
 ## 21 novembre 2026
+
+- **L’Énéide 1.2.2** — Renvois simplifiés dans les corrigés. Ils indiquent le chant et l’épisode.
 
 - **L’Énéide 1.2.1** — 40 activités sur les chants I à IV, niveaux Débutant et Expert, filtre par chant, éclairages dans les corrigés et libellés validés. Première publication sur `main`.
 - **Lettres d’une Péruvienne 1.0.0** — Version de l’app du catalogue de français, avec révision de l’œuvre et préparation de l’entretien. Numéro V1.0 normalisé.
