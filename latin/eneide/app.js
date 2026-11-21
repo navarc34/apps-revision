@@ -7,13 +7,13 @@ const labels = {
   choice: "QCM",
   boolean: "Vrai ou faux",
   order: "Remise en ordre",
-  challenge: "Défi à réponse ouverte",
 };
-const modules = [
-  { id: "reading", title: "Récit, personnages et dieux", description: "Retrouve les épisodes, les escales du voyage et le rôle de chacun." },
-  { id: "challenge", title: "Interpréter et faire le lien avec Auguste", description: "Appuie ta réponse sur le récit, ta lecture ou un repère du cours." },
-];
+const levels = {
+  beginner: { label: "Débutant", description: "Les grands épisodes, les personnages et les étapes du voyage." },
+  expert: { label: "Expert", description: "Des épisodes moins connus, des détails du récit et des repères mythologiques." },
+};
 
+let level = "beginner";
 let chant = 0;
 let session = null;
 let position = 0;
@@ -42,11 +42,12 @@ function randomizedOptions(item) {
   return indexed;
 }
 
-function moduleItems(id) {
-  return activities.filter(item =>
-    (id === "challenge" ? item.type === id : item.type !== "challenge") &&
-    (!chant || item.chants.includes(chant))
-  );
+function selectedActivities() {
+  return activities.filter(item => item.level === level && (!chant || item.chants.includes(chant)));
+}
+
+function selectionTitle() {
+  return levels[level].label + " · " + (chant ? "Chant " + romans[chant] : "Tous les chants");
 }
 
 function focusOn(selector) {
@@ -61,29 +62,24 @@ function goHome() {
 }
 
 function renderHome() {
+  const count = selectedActivities().length;
   app.innerHTML = `
-    <section class="panel" aria-labelledby="quiz-heading">
+    <section class="panel setup" aria-labelledby="quiz-heading">
       <h2 id="quiz-heading" tabindex="-1">Préparer le contrôle de lecture</h2>
-      <p>Deux quiz différents sur les quatre chants. Chacun mêle 9 questions de lecture et 3 défis.</p>
-      <div class="actions quiz-actions">
-        <button type="button" class="primary" data-quiz="1">Quiz 1 · 12 activités</button>
-        <button type="button" class="secondary" data-quiz="2">Quiz 2 · 12 activités</button>
+      <div class="level-cards" role="group" aria-label="Niveau">
+        ${Object.entries(levels).map(([id, entry]) => `<button type="button" class="level-card" data-level="${id}" aria-pressed="${id === level}">
+          <strong>${entry.label}</strong><span>${entry.description}</span>
+        </button>`).join("")}
       </div>
-    </section>
-    <h2 class="filter-heading" id="filter-heading">Réviser par chant</h2>
-    <div class="filters" role="group" aria-labelledby="filter-heading">
-      ${romans.map((roman, index) => `<button type="button" class="filter" data-chant="${index}" aria-pressed="${index === chant}">${roman ? "Chant " + roman : "Tous les chants"}</button>`).join("")}
-    </div>
-    <div class="modules">
-      ${modules.map(module => {
-        const count = moduleItems(module.id).length;
-        return `<section class="module">
-          <h3>${module.title}</h3>
-          <p class="muted">${module.description}</p>
-          <button type="button" class="primary" data-module="${module.id}" aria-label="Commencer · ${module.title} · ${count} activités">Commencer · ${count} activités</button>
-        </section>`;
-      }).join("")}
-    </div>`;
+      <h3 class="filter-heading" id="filter-heading">Chants à réviser</h3>
+      <div class="filters" role="group" aria-labelledby="filter-heading">
+        ${romans.map((roman, index) => `<button type="button" class="filter" data-chant="${index}" aria-pressed="${index === chant}">${roman ? "Chant " + roman : "Tous les chants"}</button>`).join("")}
+      </div>
+      <div class="actions quiz-actions">
+        <button type="button" class="primary" data-action="start" ${count ? "" : "disabled"}>Commencer</button>
+        <span class="muted" role="status">${count} ${count === 1 ? "activité" : "activités"}</span>
+      </div>
+    </section>`;
 }
 
 function start(title, items) {
@@ -137,17 +133,15 @@ function renderChoices(item) {
 
 function renderFeedback(item) {
   if (!revealed) return "";
-  const challenge = item.type === "challenge";
   const objective = options.length > 0;
-  const title = challenge ? "Critères et exemple" : objective
+  const title = objective
     ? (isCorrect(item) ? "Bien vu !" : "À revoir") : "Réponse";
   const reference = item.chants.length === 1
     ? "Chant " + romans[item.chants[0]] + " · " + item.reference : item.reference;
   return `<section class="feedback" aria-labelledby="feedback-heading">
     <h3 id="feedback-heading" tabindex="-1">${title}</h3>
-    ${challenge ? `<ul>${item.criteria.map(criterion => `<li>${escapeHtml(criterion)}</li>`).join("")}</ul>` : ""}
     ${item.type === "order" ? `<p><strong>Ordre attendu</strong></p><ol>${item.options.map(value => `<li>${escapeHtml(value)}</li>`).join("")}</ol>` : ""}
-    <p>${challenge ? "<strong>Exemple.</strong> " : ""}${escapeHtml(item.answer)}</p>
+    <p>${escapeHtml(item.answer)}</p>
     ${item.extra ? `<p class="extra"><strong>Pour aller plus loin.</strong> ${escapeHtml(item.extra)}</p>` : ""}
     <p class="reference">${escapeHtml(reference)}</p>
   </section>`;
@@ -155,20 +149,17 @@ function renderFeedback(item) {
 
 function renderQuestion() {
   const item = session.items[position];
-  const challenge = item.type === "challenge";
   const chants = item.chants.length === 4 ? "Chants I à IV"
     : (item.chants.length === 1 ? "Chant " : "Chants ") + new Intl.ListFormat("fr").format(item.chants.map(n => romans[n]));
   app.innerHTML = `
     <div class="session-top">
-      <button type="button" class="link-button back" data-action="home">← Activités</button>
+      <button type="button" class="link-button back" data-action="home">← Niveau et chants</button>
       <span class="muted">Activité ${position + 1} / ${session.items.length}</span>
     </div>
     <progress class="progress" aria-label="Activités terminées" max="${session.items.length}" value="${position + Number(revealed)}"></progress>
     <section class="panel" aria-labelledby="prompt">
-      <div class="tags"><span class="tag">${chants}</span><span class="tag">${labels[item.type]}</span></div>
-      ${challenge ? `<p class="eyebrow">${escapeHtml(item.title)}</p>` : ""}
+      <div class="tags"><span class="tag">${levels[level].label}</span><span class="tag">${chants}</span><span class="tag">${labels[item.type]}</span></div>
       <h2 id="prompt" tabindex="-1">${escapeHtml(item.prompt)}</h2>
-      ${challenge && !revealed ? "<p class='muted'>Réponds en 30 à 60 secondes à voix haute ou en quelques lignes au brouillon.</p>" : ""}
       ${item.type === "card" && !revealed ? "<p class='muted'>Formule ta réponse de mémoire, puis compare-la au corrigé.</p>" : ""}
       ${renderChoices(item)}
       ${renderFeedback(item)}
@@ -176,7 +167,7 @@ function renderQuestion() {
         ${revealed
           ? `<button type="button" class="primary" data-action="next">${position + 1 === session.items.length ? "Terminer" : "Continuer"}</button>
              ${options.length ? "" : '<button type="button" class="secondary" data-action="review">À revoir</button>'}`
-          : `<button type="button" class="primary" data-action="reveal" ${needsSelection(item) ? "disabled" : ""}>${challenge ? "Afficher les critères" : options.length ? "Vérifier" : "Afficher la réponse"}</button>`}
+          : `<button type="button" class="primary" data-action="reveal" ${needsSelection(item) ? "disabled" : ""}>${options.length ? "Vérifier" : "Afficher la réponse"}</button>`}
       </div>
     </section>`;
 }
@@ -195,8 +186,7 @@ function advance() {
       : ""}</p>
     <div class="actions">
       ${count ? `<button type="button" class="primary" data-action="retry">Revoir ces activités</button>` : ""}
-      <button type="button" class="secondary" data-action="home">Retour aux activités</button>
-      ${session.title === "Quiz 1" ? '<button type="button" class="secondary" data-quiz="2">Faire le quiz 2</button>' : ""}
+      <button type="button" class="secondary" data-action="home">Choisir le niveau et les chants</button>
     </div>
   </section>`;
   focusOn("#result");
@@ -205,9 +195,11 @@ function advance() {
 app.addEventListener("click", event => {
   const button = event.target.closest("button");
   if (!button || button.disabled) return;
-  const { quiz, chant: selectedChant, module, option, action } = button.dataset;
-  if (quiz) {
-    start("Quiz " + quiz, activities.filter(item => item.quiz === Number(quiz)));
+  const { level: selectedLevel, chant: selectedChant, option, action } = button.dataset;
+  if (selectedLevel) {
+    level = selectedLevel;
+    renderHome();
+    focusOn(`[data-level="${level}"]`);
     return;
   }
   if (selectedChant !== undefined) {
@@ -216,8 +208,8 @@ app.addEventListener("click", event => {
     focusOn(`[data-chant="${chant}"]`);
     return;
   }
-  if (module) {
-    start(modules.find(entry => entry.id === module).title, moduleItems(module));
+  if (action === "start") {
+    start(selectionTitle(), selectedActivities());
     return;
   }
   if (action === "home") {
