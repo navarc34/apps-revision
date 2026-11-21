@@ -65,7 +65,7 @@ function renderHome() {
   const count = selectedActivities().length;
   app.innerHTML = `
     <section class="panel setup" aria-labelledby="quiz-heading">
-      <h2 id="quiz-heading" tabindex="-1">Préparer le contrôle de lecture</h2>
+      <h2 id="quiz-heading" tabindex="-1">Choisir son niveau pour réviser</h2>
       <div class="level-cards" role="group" aria-label="Niveau">
         ${Object.entries(levels).map(([id, entry]) => `<button type="button" class="level-card" data-level="${id}" aria-pressed="${id === level}">
           <strong>${entry.label}</strong><span>${entry.description}</span>
