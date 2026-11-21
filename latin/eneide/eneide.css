@@ -76,3 +76,11 @@ footer { margin-top: 30px; border-top: 1px solid var(--border); padding-top: 15p
   .level-cards { grid-template-columns: 1fr; }
   .mark { width: 49px; height: 49px; font-size: 27px; }
 }
+.feedback .extra {
+  margin: 14px 0;
+  padding: 11px 14px;
+  background: #fffcf4;
+  border-radius: 0 9px 9px 0;
+  font-size: .92rem;
+}
+.extra strong { display: block; margin-bottom: 4px; color: #604d31; }

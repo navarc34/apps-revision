@@ -113,7 +113,6 @@ function renderChoices(item) {
   const order = item.type === "order";
   return `
     ${order && !revealed ? `<p class="muted">Sélectionne les éléments dans l’ordre. Clique à nouveau sur un élément sélectionné pour le retirer.</p>` : ""}
-    ${item.type === "boolean" && !revealed ? `<p class="muted">Si tu réponds « Faux », essaie de reformuler la phrase avant de vérifier.</p>` : ""}
     <div class="choices" role="group" aria-label="Réponses proposées">
       ${options.map(({ value, index }) => {
         const rank = picked.indexOf(index);
@@ -142,7 +141,7 @@ function renderFeedback(item) {
     <h3 id="feedback-heading" tabindex="-1">${title}</h3>
     ${item.type === "order" ? `<p><strong>Ordre attendu</strong></p><ol>${item.options.map(value => `<li>${escapeHtml(value)}</li>`).join("")}</ol>` : ""}
     <p>${escapeHtml(item.answer)}</p>
-    ${item.extra ? `<p class="extra"><strong>Pour aller plus loin.</strong> ${escapeHtml(item.extra)}</p>` : ""}
+    ${item.extra ? `<aside class="extra" aria-label="Pour aller plus loin"><strong>Pour aller plus loin</strong><p>${escapeHtml(item.extra)}</p></aside>` : ""}
     <p class="reference">${escapeHtml(reference)}</p>
   </section>`;
 }
@@ -160,7 +159,6 @@ function renderQuestion() {
     <section class="panel" aria-labelledby="prompt">
       <div class="tags"><span class="tag">${levels[level].label}</span><span class="tag">${chants}</span><span class="tag">${labels[item.type]}</span></div>
       <h2 id="prompt" tabindex="-1">${escapeHtml(item.prompt)}</h2>
-      ${item.type === "card" && !revealed ? "<p class='muted'>Formule ta réponse de mémoire, puis compare-la au corrigé.</p>" : ""}
       ${renderChoices(item)}
       ${renderFeedback(item)}
       <div class="actions">
